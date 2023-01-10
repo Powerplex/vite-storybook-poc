@@ -8,13 +8,33 @@ export default defineConfig({
   resolve: {
     alias: [
       {
-        find: "@stories",
-        replacement: path.resolve(__dirname, "./src/stories"),
+        find: "@assets",
+        replacement: path.resolve(__dirname, "./docs/assets"),
+      },
+      {
+        find: "@public",
+        replacement: path.resolve(__dirname, "./public"),
+      },
+      {
+        find: "@devtools",
+        replacement: path.resolve(__dirname, "./src/devtools"),
       },
       {
         find: "@components",
-        replacement: path.resolve(__dirname, "./src/components"),
+        replacement: path.resolve(__dirname, "./packages/components"),
       },
+      {
+        find: "@hooks",
+        replacement: path.resolve(__dirname, "./packages/hooks"),
+      },
+      {
+        find: "@tokens",
+        replacement: path.resolve(__dirname, "./packages/tokens"),
+      },
+      {
+        find: "@utils",
+        replacement: path.resolve(__dirname, "./packages/utils"),
+      }
     ],
   },
 });

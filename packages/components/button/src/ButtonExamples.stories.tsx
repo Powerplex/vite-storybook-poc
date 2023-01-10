@@ -1,5 +1,5 @@
 import { Button } from "./Button";
-import { ReactLiveBlock } from "@stories/ReactLiveBlock";
+import { ReactLiveBlock } from "@devtools/ReactLiveBlock";
 import { Stack } from "@components/Stack";
 
 export const variants = () => (

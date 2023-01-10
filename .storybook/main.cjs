@@ -5,7 +5,7 @@ module.exports = {
       ...config,
     };
   },
-  stories: ["../src/stories/**/*.mdx", "../src/**/*.stories.@(mdx|ts|tsx)"],
+  stories: ["../docs/**/*.mdx", "../packages/**/*.stories.@(mdx|ts|tsx)"],
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",

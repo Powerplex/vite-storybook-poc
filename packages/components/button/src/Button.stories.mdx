@@ -6,8 +6,8 @@ import {
   DocsContainer,
 } from "@storybook/addon-docs";
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from "react-live";
-import { CodeSnippet, ReactLiveBlock } from "@stories/ReactLiveBlock";
-import { Title } from "@stories/Title";
+import { CodeSnippet, ReactLiveBlock } from "@devtools/ReactLiveBlock";
+import { StoryHeading } from "@devtools/StoryHeading";
 
 import { Button } from "./Button";
 
@@ -17,11 +17,11 @@ import * as examples from "./ButtonExamples.stories";
 
 # Button
 
-<Title label="Import" />
+<StoryHeading label="Import" />
 
 <CodeSnippet code='import { Button } from "@brikke-ui/button";' />
 
-<Title label="Usage" />
+<StoryHeading label="Usage" />
 
 Button component is used to trigger an action or event, such as submitting a form, opening a Dialog, canceling an action, or performing a delete operation.
 
@@ -29,14 +29,14 @@ Button component is used to trigger an action or event, such as submitting a for
   <Button>button</Button>
 </ReactLiveBlock>
 
-<Title label="Props" />
+<StoryHeading label="Props" />
 
 <ArgsTable of={Button} />
 
-<Title label="Variants" />
+<StoryHeading label="Variants" />
 
 <Story name="variants" story={examples.variants} />
 
-<Title label="Sizes" />
+<StoryHeading label="Sizes" />
 
 <Story name="sizes" story={examples.sizes} />

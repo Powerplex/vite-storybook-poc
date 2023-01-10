@@ -1,0 +1,17 @@
+{
+  "name": "@coral/utils-component-dependencies",
+  "version": "0.0.1",
+  "description": "react coral button",
+  "type": "module",
+  "exports": {
+    ".": "./index.js"
+  },
+  "engines": {
+    "node": ">=14.16"
+  },
+  "scripts": {
+    "build": "babel --presets sui ./src --out-dir ./lib"
+  },
+  "keywords": [],
+  "license": "MIT"
+}

@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "target": "ESNext",
     "useDefineForClassFields": true,
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
@@ -17,10 +17,15 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "paths": {
-      "@stories/*": ["stories/*"],
-      "@components/*": ["components/*"],
+      "@assets/*": ["docs/assets/*"],
+      "@public/*": ["public/*"],
+      "@devtools/*": ["src/devtools/*"],
+      "@components/*": ["packages/components/*"],
+      "@hooks/*": ["packages/hooks/*"],
+      "@tokens/*": ["packages/tokens/*"],
+      "@utils/*": ["packages/utils/*"],
     }
   },
-  "include": ["src", "global.d.ts"],
+  "include": ["src", "packages", "global.d.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

@@ -1,5 +1,5 @@
 import { Meta } from "@storybook/blocks";
-import ArgstableImg from "@stories/assets/argstable.png";
+import ArgstableImg from "@assets/argstable.png";
 
 <Meta title="Contributing/Writing stories" />
 
@@ -81,14 +81,14 @@ We [suggest you split JSX examples from the markdown](https://github.com/storybo
 
 ### Live editable example
 
-We created `@stories/ReactLiveBlock` to replace the `Canvas` component offered by Storybook.
+We created `@devtools/ReactLiveBlock` to replace the `Canvas` component offered by Storybook.
 `ReactLiveBlock` allows you to display editable JSX of your stories, copy the code or reset it to its initial state.
 
 Simply create examples like this:
 
 ```
 import { Button } from "./Button";
-import { ReactLiveBlock } from "@stories/ReactLiveBlock";
+import { ReactLiveBlock } from "@devtools/ReactLiveBlock";
 
 export const variants = () => (
   <ReactLiveBlock scope={{ Button }}>

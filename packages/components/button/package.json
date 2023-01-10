@@ -1,0 +1,22 @@
+{
+  "name": "@coral/button",
+  "version": "0.0.1",
+  "description": "react coral button",
+  "type": "module",
+  "exports": {
+    ".": "./index.js"
+  },
+  "engines": {
+    "node": ">=14.16"
+  },
+  "scripts": {
+    "build": "npx swc src -s -d dist/amd"
+  },
+  "dependencies": {},
+  "coral": {
+    "atomic": "demo",
+    "functionality": "demo"
+  },
+  "keywords": [],
+  "license": "MIT"
+}

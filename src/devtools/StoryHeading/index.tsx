@@ -5,7 +5,7 @@ interface Props {
   label: string;
 }
 
-export function Title({ label, heading = "h2" }: Props) {
+export function StoryHeading({ label, heading = "h2" }: Props) {
   const HeadingTag = heading as keyof JSX.IntrinsicElements;
   const slugifiedLabel = slugify(label);
 
