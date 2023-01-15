@@ -1,9 +1,11 @@
 import { Stack } from '@components/stack'
 import { ReactLiveBlock } from '@devtools/ReactLiveBlock'
+import { FC } from 'react'
 
-import { Button } from '../'
+import { Button } from './index'
 
-export const variants = () => (
+export default {}
+export const variants: FC = () => (
   <ReactLiveBlock scope={{ Button, Stack }}>
     <Stack alignItems="end">
       <Button intent="primary">primary button</Button>
@@ -12,7 +14,7 @@ export const variants = () => (
   </ReactLiveBlock>
 )
 
-export const sizes = () => (
+export const sizes: FC = () => (
   <ReactLiveBlock scope={{ Button, Stack }}>
     <Stack alignItems="end">
       <Button size="small">small button</Button>

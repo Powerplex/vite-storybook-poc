@@ -1,0 +1,15 @@
+{
+  "name": "@ds-name/use-combined-state",
+  "version": "0.0.0",
+  "description": "",
+  "type": "module",
+  "main": "dist/cjs/index.js",
+  "exports": {
+    ".": "./index.ts"
+  },
+  "scripts": {
+    "build": "ts-node-esm ../../../bin/leaf-packages/build-component.ts"
+  },
+  "author": "",
+  "license": "ISC"
+}
