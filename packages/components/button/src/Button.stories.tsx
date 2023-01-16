@@ -4,8 +4,9 @@ import { FunctionComponent } from 'react'
 
 import { Button } from './index'
 
-export default {}
-export const variants: FunctionComponent = () => (
+export default () => null
+
+export const Variants: FunctionComponent = () => (
   <ReactLiveBlock scope={{ Button, Stack }}>
     <Stack alignItems="end">
       <Button intent="primary">primary button</Button>
@@ -14,7 +15,7 @@ export const variants: FunctionComponent = () => (
   </ReactLiveBlock>
 )
 
-export const sizes: FunctionComponent = () => (
+export const Sizes: FunctionComponent = () => (
   <ReactLiveBlock scope={{ Button, Stack }}>
     <Stack alignItems="end">
       <Button size="small">small button</Button>
