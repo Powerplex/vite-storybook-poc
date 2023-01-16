@@ -23,6 +23,7 @@
     "paths": {
       "@devtools/*": ["src/devtools/*"],
       "@docs/*": ["docs/*"],
+      "@foundations/*": ["foundations/*"],
       "@components/*": ["packages/components/*"],
     }
   },

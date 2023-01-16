@@ -1,15 +1,21 @@
 {
-    "name": "@ds-name/stack",
-    "version": "0.0.0",
-    "description": "Stack is a layout component used to group elements together and apply a space between them.",
-    "type": "module",
-    "main": "dist/cjs/index.js",
-    "exports": {
-        ".": "./index.tsx"
-    },
-    "scripts": {
-        "build": "ts-node-esm ../../../bin/leaf-packages/build-component.ts"
-    },
-    "author": "",
-    "license": "ISC"
+  "name": "@ds-name/stack",
+  "version": "0.0.0",
+  "description": "Stack is a layout component used to group elements together and apply a space between them.",
+  "type": "module",
+  "main": "dist/cjs/index.js",
+  "exports": {
+    ".": "./index.tsx"
+  },
+  "scripts": {
+    "install-dependencies": "npm i",
+    "clean": "rm -rf ./node_modules ./dist",
+    "build": "ts-node-esm ../../../bin/leaf-packages/build-component.ts",
+    "test": "vitest run --coverage -c ../../../vite.config.ts"
+  },
+  "dependencies": {
+    "classnames": "@ds-name/component-dependencies@0.0.1"
+  },
+  "author": "@adevinta",
+  "license": "ISC"
 }

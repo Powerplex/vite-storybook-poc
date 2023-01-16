@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "clean": "rm -rf node_modules && lerna run clean",
     "build": "tsc && lerna run build",
     "preview": "vite preview",
     "test": "vitest watch",
@@ -19,7 +20,7 @@
     "typecheck": "tsc",
     "write-themes": "ts-node-esm writeThemes.ts",
     "write-tailwind-conf": "ts-node-esm writeTailwindConfig.ts",
-    "postinstall": "husky install"
+    "pre-push": "npm run test"
   },
   "dependencies": {
     "classnames": "^2.3.2",
@@ -48,6 +49,7 @@
     "@types/react-dom": "^18.0.9",
     "@typescript-eslint/eslint-plugin": "5.48.1",
     "@vitejs/plugin-react": "^3.0.0",
+    "@vitest/coverage-istanbul": "^0.27.1",
     "autoprefixer": "^10.4.13",
     "class-variance-authority": "^0.4.0",
     "copy-to-clipboard": "^3.3.3",

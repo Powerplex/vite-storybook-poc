@@ -19,6 +19,11 @@ export const parameters = {
       color: themeConfig.colors.bg.primary,
     })),
   },
+  options: {
+    storySort: {
+      order: ['Introduction', 'Docs', 'Foundations', 'Components', 'Hooks', '*'],
+    },
+  },
 }
 
 export const decorators = [

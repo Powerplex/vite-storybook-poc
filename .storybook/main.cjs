@@ -1,11 +1,13 @@
 const path = require('path')
+
 module.exports = {
   async viteFinal(config, { configType }) {
     return {
       ...config,
     }
   },
-  stories: ['../docs/**/*.mdx', '../packages/**/*.stories.@(mdx|ts|tsx)'],
+  stories: ['../documentation/**/*.mdx', '../packages/**/*.stories.@(mdx|ts|tsx)'],
+  staticDirs: ['../public'],
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',

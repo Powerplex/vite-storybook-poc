@@ -1,15 +1,22 @@
 {
   "name": "@ds-name/button",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Button component is used to trigger an action or event, such as submitting a form, opening a Dialog, canceling an action, or performing a delete operation.",
   "type": "module",
   "main": "dist/cjs/index.js",
+  "types": "./dist/main.d.ts",
   "exports": {
     ".": "./index.ts"
   },
   "scripts": {
-    "build": "ts-node-esm ../../../bin/leaf-packages/build-component.ts"
+    "install-dependencies": "npm i",
+    "clean": "rm -rf ./node_modules ./dist",
+    "build": "ts-node-esm ../../../bin/leaf-packages/build-component.ts",
+    "test": "vitest run --coverage -c ../../../vite.config.ts"
   },
-  "author": "",
-  "license": "ISC"
+  "dependencies": {
+    "classnames": "@ds-name/component-dependencies@0.0.1"
+  },
+  "author": "@adevinta",
+  "license": "MIT"
 }
