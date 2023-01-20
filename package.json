@@ -5,8 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "clean": "rm -rf node_modules && lerna run clean",
-    "build": "tsc && lerna run build",
+    "postinstall": "lerna bootstrap --use-workspaces && npm run build",
+    "clean": "lerna run clean && rm -rf node_modules",
+    "build": "tsc -d && lerna run build",
     "preview": "vite preview",
     "test": "vitest watch",
     "test:run": "vitest run",
@@ -86,6 +87,6 @@
     "vitest": "^0.27.1"
   },
   "workspaces": [
-    "packages/components/*"
+    "packages/**/*"
   ]
 }

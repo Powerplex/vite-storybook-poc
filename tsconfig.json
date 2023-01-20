@@ -25,6 +25,7 @@
       "@docs/*": ["docs/*"],
       "@foundations/*": ["foundations/*"],
       "@components/*": ["packages/components/*"],
+      "@hooks/*": ["packages/hooks/*"],
     }
   },
   "exclude": ["node_modules", ".swcrc"],

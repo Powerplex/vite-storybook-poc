@@ -9,14 +9,11 @@
     ".": "./index.ts"
   },
   "scripts": {
-    "install-dependencies": "npm i",
     "clean": "rm -rf ./node_modules ./dist",
     "build": "ts-node-esm ../../../bin/leaf-packages/build-component.ts",
     "test": "vitest run --coverage -c ../../../vite.config.ts"
   },
-  "dependencies": {
-    "classnames": "@ds-name/component-dependencies@0.0.1"
-  },
+  "dependencies": {},
   "author": "@adevinta",
   "license": "MIT"
 }
