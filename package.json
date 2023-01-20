@@ -20,8 +20,7 @@
     "prettier": "prettier --config .prettierrc.json --write \"{packages,src}/**/*.{ts,tsx}\"",
     "typecheck": "tsc",
     "write-themes": "ts-node-esm writeThemes.ts",
-    "write-tailwind-conf": "ts-node-esm writeTailwindConfig.ts",
-    "pre-push": "npm run test"
+    "write-tailwind-conf": "ts-node-esm writeTailwindConfig.ts"
   },
   "dependencies": {
     "npm": "^9.2.0",

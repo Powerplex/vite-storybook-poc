@@ -8,7 +8,6 @@
     ".": "./index.ts"
   },
   "scripts": {
-    "install-dependencies": "npm i",
     "clean": "rm -rf ./node_modules ./dist",
     "build": "ts-node-esm ../../../bin/leaf-packages/build-component.ts",
     "test": "vitest run --coverage -c ../../../vite.config.ts"
