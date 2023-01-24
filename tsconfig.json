@@ -10,6 +10,7 @@
         "@devtools/*": ["src/devtools/*"],
         "@docs/*": ["documentation/*"],
         "@components/*": ["packages/components/*/src"],
+        "@utils/*": ["packages/utils/*/src"]
       }
     },
     // Overwrite “exclude” from parent config, so we can typecheck tests for local development
