@@ -1,0 +1,152 @@
+import { Meta } from '@storybook/blocks'
+import { StoryHeading } from '@devtools/StoryHeading'
+
+import ArgstableImg from '@docs/assets/argstable.png'
+
+<Meta title="Theming your app" />
+
+# Theming your app
+
+- [Install](#install)
+- [Theme specifications](#theme-specifications)
+  - [1 - tailwind.css](#1--tailwindcss)
+  - [2 - tailwind.theme.config.js](--tailwindthemeconfcjs)
+- [CLI](#cli)
+  - [build command](#build-command)
+- [Setup your app's themes](#setup-your-apps-themes)
+  - [1 - Create your themes](#1--create-your-themes)
+  - [2 - Theme switching](#1--create-your-themes)
+  - [3 - Adding a theme](#3--adding-a-theme)
+
+<StoryHeading label="Install" />
+
+```
+npm i @ds-name/theme -D
+```
+
+<StoryHeading label="CLI" />
+
+<StoryHeading label="build command" heading="h3" />
+
+Build theme-related styles (`tailwind.css`) and theme configuration file.
+
+Best to run after every theme update.
+
+```
+npx run @ds-name/theme build
+```
+
+Options:
+
+- `--theme`: When your app `themes` folder is not located at root level.
+
+```
+npx run @ds-name/theme build --themes="path/to/themes"
+```
+
+- `--output`: Custom css file (`tailwind.css`) output location:
+
+```
+npx run @ds-name/theme build --output="src/styles"
+```
+
+- `--configOutput`: Custom config file (`tailwind.theme.config.js`) output location:
+
+```
+npx run @ds-name/theme build --configOutput="someFolder/tailwind.theme.config.js"
+```
+
+<StoryHeading label="Theme specifications" />
+
+Before implementing themes, your must know the basics of what a theme is.
+
+- One app can have as many themes as you need.
+- Each theme of your app must comply to the theme contract (structure)
+- The theme contract can be used from your app like this: `import type { Theme } from '@ds-name/theme'`
+- The theme contract follows [Tailwindcss theme configuration specifications](https://tailwindcss.com/docs/theme#configuration-reference).
+
+The goal of `@ds-name/theme` is to parse your app's themes and generate two files from it, that your app will use for global styling and theme switching.
+
+**Please note that those two files should never be manually updated, `@ds-name/theme` is in charge of those file.**
+
+<StoryHeading label="1 - tailwind.css" heading="h3" />
+
+This css file must be included in your App's global stylesheets.
+
+It contains the css custom properties of all your themes. The default theme properties are grouped under `:root` (default values) and then it generates a className for each other theme. That way, theme switching is as easy as changing a className on the `html` tag of your app.
+
+<StoryHeading label="2 - tailwind.theme.config.js" heading="h3" />
+
+A custom theme configuration for Tailwind. This file should be imported in you app's `tailwind.config.js` to override Tailwind's default theme by it.
+
+See: [Tailwind: Overriding the default theme](https://tailwindcss.com/docs/theme#overriding-the-default-theme)
+
+Example:
+
+```
+const themeConf = require('./tailwind.theme.config.js')
+
+/** @type {import('tailwindcss').Config} */
+
+module.exports = {
+  theme: themeConf, // Overriding Tailwind's default theme configuration
+  content: [
+    './packages/**/*.{js,ts,jsx,tsx}',
+    /* 👇 in order for the theme switching to work in dev mode */
+    './src/tailwind.css',
+  ],
+  plugins: [require('tailwindcss-radix')()],
+}
+
+```
+
+<StoryHeading label="Setup your app's themes" />
+
+<StoryHeading label="1 - Create your themes" heading="h3" />
+
+> **This folder will be used to generate the css custom properties from the themes**, as well as **a tailwind configuration file to improve the developer experience**.
+
+Create a `themes` folder somewhere in your app.
+
+This folder must have an `index.ts` (or `.js`) whom default export must be an object containing all your app's themes (you can have as many themes as you want):
+
+```
+import { defaultTheme } from './default.ts'
+import { defaultDarkTheme } from './defaultDark.ts'
+import { proTheme } from './pro.ts'
+import { proDarkTheme } from './proDark.ts'
+
+import type { Theme } from '@ds-theme/theme'
+
+const themes: Record<string, Theme> = {
+  default: defaultTheme,
+  defaultDark: defaultDarkTheme,
+  pro: proTheme,
+  proDark: proDarkTheme,
+}
+
+export default themes
+
+```
+
+As you can see, `@ds-name/theme` exposes a `Theme` type. Every theme defined in your app must satisfy this type.
+
+This is convenient for whenever a major version of `@ds-name/theme` is released, you will know which tokens must be remove/added from your themes.
+
+<StoryHeading label="2 - Theme switching" heading="h3" />
+
+Tailwindcss will output a `tailwind.css` file with your theme's css custom properties.
+
+By updating a single className on your app's `html` tag (ex: `.default`, `.defaultDark`, `.pro`, `.proDark`, etc.) the values of the css custom properties can be easily switched,
+using the theme provider of your choice (for NextJS apps, we recommend [next-themes](https://github.com/pacocoursey/next-themes))
+
+<StoryHeading label="3 - Adding a theme" heading="h3" />
+
+TODO
+
+<StoryHeading label="Developer experience" />
+
+<StoryHeading label="1 - VSCode extensions" heading="h3" />
+
+- [Tailwind CSS IntelliSense](https://tailwindcss.com/docs/editor-setup#intelli-sense-for-vs-code): for better autocompletion and discoverability of Tailwind classnames.
+- [Tailwind Docs](https://marketplace.visualstudio.com/items?itemName=austenc.tailwind-docs): Access sections of Tailwind's documentation easily from VSCode.
