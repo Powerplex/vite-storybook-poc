@@ -1,6 +1,5 @@
 import merge from './merge'
 import componentConfiguration from './vite.component'
-import themeConfiguration from './vite.theme'
 
 interface Pkg {
   name: string
@@ -17,18 +16,6 @@ export function getComponentConfiguration(pkg: Pkg, options = {}) {
   console.log(`Building component package ${pkg.name} v.${pkg.version} ...`)
 
   return getConfiguration(componentConfiguration, options, pkg.name)
-}
-
-/**
- * Returns Vite build configuration for theme package,
- * optionally amended with the specified options
- * @param options Custom build options
- * @returns Vite build configuration
- */
-export function getThemeConfiguration(pkg: Pkg, options = {}) {
-  console.log(`Building theme package ${pkg.name} v.${pkg.version} ...`)
-
-  return getConfiguration(themeConfiguration, options, pkg.name)
 }
 
 /**

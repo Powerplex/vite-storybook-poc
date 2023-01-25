@@ -1,11 +1,11 @@
 {
     "name": "@ds-name/theme",
     "version": "0.0.0",
-    "description": "Theme definition and CLI tool.",
+    "description": "Theme configuration",
     "module": "./dist/index.js",
     "types": "./dist/index.d.ts",
     "scripts": {
-        "build": "vite build"
+      "build": "tsc"
     },
     "author": "@adevinta",
     "license": "MIT"

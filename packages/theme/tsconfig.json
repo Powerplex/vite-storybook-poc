@@ -1,0 +1,15 @@
+{
+    "extends": "../../tsconfig.build.json",
+    "compilerOptions": {
+      "emitDeclarationOnly": false,
+      "declaration": true,
+      "baseUrl": ".",
+      "outDir": "./dist",
+      "rootDir": "./src",
+      "module": "NodeNext"
+    },
+    "include": [
+      "src/**/*",
+      "../../global.d.ts"
+    ]
+  }
