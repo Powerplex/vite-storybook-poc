@@ -1,5 +1,5 @@
 {
-    "name": "@ds-name/stack",
+    "name": "@spark-ui/stack",
     "version": "0.0.0",
     "description": "Stack is a layout component used to group elements together and apply a space between them.",
     "main": "./dist/index.mjs",
