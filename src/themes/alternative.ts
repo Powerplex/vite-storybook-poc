@@ -1,4 +1,4 @@
-import type { Theme } from './types'
+import type { Theme } from 'packages/theme/src/types.mjs'
 
 export const alternativeTheme: Theme = {
   /** The screens key allows you to customize the responsive breakpoints in your project. */

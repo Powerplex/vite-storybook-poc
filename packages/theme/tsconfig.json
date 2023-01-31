@@ -1,0 +1,17 @@
+{
+    "extends": "../../tsconfig.build.json",
+    "compilerOptions": {
+      "emitDeclarationOnly": false,
+      "declaration": true,
+      "baseUrl": ".",
+      "outDir": "./dist",
+      "rootDir": "./src",
+      "module": "nodenext",
+      "moduleResolution": "nodenext",
+      "target": "es5"
+    },
+    "include": [
+      "**/*",
+      "../../global.d.ts"
+    ]
+  }

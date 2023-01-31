@@ -1,0 +1,18 @@
+{
+    "name": "@spark-ui/theme",
+    "version": "0.0.0",
+    "type": "module",
+    "description": "Theme configuration",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "bin": "./dist/src/index.mjs",
+    "scripts": {
+      "build": "tsc"
+    },
+    "devDependencies": {
+      "hex-rgb": "5.0.0",
+      "parent-module": "3.0.0"
+    },
+    "author": "@adevinta",
+    "license": "MIT"
+}
