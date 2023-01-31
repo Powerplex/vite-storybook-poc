@@ -1,0 +1,106 @@
+import type { Theme } from './types.mjs'
+
+export const placeholderTheme: Theme = {
+  screens: {
+    sm: '',
+    md: '',
+    lg: '',
+    xl: '',
+    '2xl': '',
+  },
+  borderWidth: {
+    none: '',
+    xs: '',
+    s: '',
+    m: '',
+  },
+  colors: {
+    transparent: '#000000',
+    bg: {
+      body: '#000000',
+      primary: '#000000',
+      primaryAccent: '#000000',
+      primarySubtle: '#000000',
+      secondary: '#000000',
+      secondaryAccent: '#000000',
+      secondarySubtle: '#000000',
+    },
+    fg: {
+      default: '#000000',
+      accent: '#000000',
+      cta: '#000000',
+      ctaInverse: '#000000',
+    },
+    bd: {
+      primary: '#000000',
+      secondary: '#000000',
+    },
+  },
+  fontFamily: {
+    openSans: '',
+  },
+  fontSize: {
+    xs: '',
+    s: '',
+    m: '',
+    l: '',
+
+    xl: '',
+    '2xl': '',
+    '3xl': '',
+  },
+  fontWeight: {
+    regular: 0,
+    semibold: 0,
+    bold: 0,
+  },
+  lineHeight: {
+    xs: '',
+    s: '',
+    m: '',
+    l: '',
+    xl: '',
+    '2xl': '',
+    '3xl': '',
+  },
+  width: {
+    pageMin: '',
+    pageMax: '',
+  },
+  borderRadius: {
+    none: '',
+    xs: '',
+    s: '',
+    m: '',
+    l: '',
+    full: '',
+  },
+  boxShadow: {
+    none: '',
+    normal: '',
+    highlighted: '',
+  },
+  spacing: {
+    auto: '',
+    none: '',
+    xs: '',
+    s: '',
+    m: '',
+    l: '',
+    xl: '',
+    xxl: '',
+  },
+  zIndex: {
+    hide: 0,
+    base: 0,
+    raised: 0,
+    dropdown: 0,
+    sticky: 0,
+    overlay: 0,
+    modal: 0,
+    popover: 0,
+    skipLink: 0,
+    toast: 0,
+    tooltip: 0,
+  },
+}
