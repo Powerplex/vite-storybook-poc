@@ -67,7 +67,7 @@ const getStringifiedThemes = (themeRecord: Record<string, Theme>) =>
       : `.${className}{${toStringifiedTheme(rest)}}`
   })
 
-export function createTailwindTokens(path: string, themeRecord: Record<string, Theme>) {
+export function createCSSTokens(path: string, themeRecord: Record<string, Theme>) {
   const { filepath, rootPath } = buildFilePath(join(parentModule() || '', path))
 
   const folders = filepath.split('/').slice(0, -1)
