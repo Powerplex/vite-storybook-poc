@@ -59,7 +59,6 @@
     "eslint-plugin-standard": "4.1.0",
     "eslint-plugin-storybook": "^0.6.10",
     "eslint-plugin-testing-library": "5.9.1",
-    "hex-rgb": "5.0.0",
     "husky": "8.0.3",
     "jsdom": "^21.0.0",
     "lerna": "^6.1.0",
