@@ -10,6 +10,7 @@ module.exports = {
     'react-hooks',
     'simple-import-sort',
     'testing-library',
+    'tailwindcss',
     'prettier',
   ],
   extends: [
@@ -52,6 +53,10 @@ module.exports = {
     'react/prop-types': 0,
     'react/jsx-key': 0,
     'react/display-name': [0, { ignoreTranspilerName: false }],
+    "tailwindcss/no-custom-classname": [1, {
+      "config":"./tailwind.config.cjs",
+      "callees": ["classnames", "clsx", "cva"],
+    }],
     // testing library
     'testing-library/await-async-utils': 2,
     'testing-library/no-await-sync-events': 2,
