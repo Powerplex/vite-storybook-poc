@@ -8,7 +8,7 @@ export const styles = cva([
   // last item
   'last:rounded-tr-s last:border-l-transparent last:border-r-transparent',
   // borders
-  'border-xs border-x-bd-primary-accent',
+  'border-xs',
   'border-l-none',
   'border-t-transparent',
   'border-b-xs border-b first:border-r-xs last:border-l-xs',

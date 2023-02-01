@@ -1,6 +1,11 @@
 import { cva, VariantProps } from 'class-variance-authority'
 import { ComponentPropsWithoutRef } from 'react'
 
+const defaultVariants = {
+  flexDirection: 'row',
+  gap: 's',
+} as const
+
 const stack = cva(['flex'], {
   variants: {
     flexDirection: {
@@ -24,10 +29,7 @@ const stack = cva(['flex'], {
       l: ['gap-l'],
     },
   },
-  defaultVariants: {
-    flexDirection: 'row',
-    gap: 's',
-  },
+  defaultVariants,
 })
 
 type CVAProps = VariantProps<typeof stack>
