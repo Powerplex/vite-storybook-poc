@@ -15,7 +15,7 @@ export const placeholderTheme: Theme = {
     m: '',
   },
   colors: {
-    transparent: '#000000',
+    transparent: '',
     bg: {
       body: '#000000',
       primary: '#000000',

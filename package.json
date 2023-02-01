@@ -4,7 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "workspaces": [
-    "packages/components/*"
+    "packages/components/*",
+    "packages/theme"
   ],
   "scripts": {
     "dev": "vite",
@@ -58,6 +59,7 @@
     "eslint-plugin-simple-import-sort": "8.0.0",
     "eslint-plugin-standard": "4.1.0",
     "eslint-plugin-storybook": "^0.6.10",
+    "eslint-plugin-tailwindcss": "3.8.3",
     "eslint-plugin-testing-library": "5.9.1",
     "husky": "8.0.3",
     "jsdom": "^21.0.0",

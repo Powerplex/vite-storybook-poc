@@ -21,3 +21,13 @@ export const Sizes = () => (
     </Stack>
   </ReactLiveBlock>
 )
+
+export const CompoundVariants = () => (
+  <ReactLiveBlock scope={{ Button, Stack }}>
+    <Stack alignItems="end">
+      <Button intent="primary" size="small" disabled>
+        hey
+      </Button>
+    </Stack>
+  </ReactLiveBlock>
+)

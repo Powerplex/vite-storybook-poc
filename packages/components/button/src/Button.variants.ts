@@ -1,5 +1,18 @@
 import { cva, VariantProps } from 'class-variance-authority'
 
+const defaultVariants = {
+  intent: 'primary',
+  size: 'small',
+} as const
+
+const compoundVariantRecord = {
+  withRidiculousPadding: {
+    intent: 'primary',
+    size: 'small',
+    disabled: true,
+  } as const,
+}
+
 export const buttonVariants = cva(
   [
     'font-semibold',
@@ -17,7 +30,7 @@ export const buttonVariants = cva(
       },
       intent: {
         primary: ['bg-bg-primary', 'text-fg-cta', 'hover:bg-bg-primary-subtle'],
-        secondary: ['bg-bg-secondary', 'text-main-text', 'hover:bg-bg-secondary-subtle'],
+        secondary: ['bg-bg-secondary', 'hover:bg-bg-secondary-subtle'],
       },
       size: {
         small: ['text-s', 'px-s', 'py-xs'],
@@ -25,18 +38,8 @@ export const buttonVariants = cva(
         large: ['text-l', 'px-l', 'py-m'],
       },
     },
-    defaultVariants: {
-      intent: 'primary',
-      size: 'small',
-    },
-    compoundVariants: [
-      {
-        intent: 'primary',
-        size: 'small',
-        disabled: true,
-        className: 'border-4 border-pink-500',
-      },
-    ],
+    defaultVariants,
+    compoundVariants: [{ ...compoundVariantRecord.withRidiculousPadding, className: '!p-xxl' }],
   }
 )
 
