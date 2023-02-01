@@ -8,6 +8,7 @@
     "packages/theme"
   ],
   "scripts": {
+    "prepare": "husky install",
     "dev": "vite",
     "clean": "lerna clean --yes && lerna exec -- rm -rf dist",
     "build": "tsc && lerna run build",
@@ -22,8 +23,7 @@
     "lint-staged": "lint-staged --config .lintstagedrc.json",
     "prettier": "prettier --config .prettierrc.json --write \"{packages,src}/**/*.{ts,tsx}\"",
     "typecheck": "tsc",
-    "handle-theme-config": "ts-node-esm handleThemeConfiguration.ts",
-    "postinstall": "husky install"
+    "handle-theme-config": "ts-node-esm handleThemeConfiguration.ts"
   },
   "devDependencies": {
     "@radix-ui/react-tabs": "^1.0.1",
