@@ -2,7 +2,7 @@ import { existsSync, mkdirSync, writeFileSync } from 'fs'
 import parentModule from 'parent-module'
 import { join } from 'path'
 
-import { placeholderTheme } from './placeholderTheme.mjs'
+import { defaultTheme } from './constants.mjs'
 import type { Theme } from './types.mjs'
 import {
   buildFilePath,
@@ -61,7 +61,7 @@ export function createTailwindConfig(path: string) {
 
   writeFileSync(
     rootPath + filepath,
-    `module.exports = ${JSON.stringify(toTailwindConfig(placeholderTheme))}`,
+    `module.exports = ${JSON.stringify(toTailwindConfig(defaultTheme))}`,
     {
       flag: 'w',
     }
