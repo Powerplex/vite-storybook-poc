@@ -3,7 +3,8 @@ import hexRgb from 'hex-rgb'
 import parentModule from 'parent-module'
 import { join } from 'path'
 
-import type { Theme } from './types.mjs'
+import { componentCxMapper } from './constants.js'
+import type { ComponentName, Theme, VariantsConfig } from './types.mjs'
 import { buildFilePath, isHex, objectEntries } from './utils.mjs'
 
 type DeepPartial<T> = T extends object
@@ -13,16 +14,18 @@ type DeepPartial<T> = T extends object
   : T
 
 interface Props {
-  className: string
+  component: ComponentName
   override: DeepPartial<Theme>
-  dataAttributes?: Record<string, string | number | boolean>
+  variants?: VariantsConfig[Props['component']]
+  apply?: string
   cssVarsMapper: Theme
 }
 
 function buildCSSScopedTokensDeclaration({
-  className,
+  component,
   override,
-  dataAttributes,
+  variants,
+  apply,
   cssVarsMapper,
 }: Props): string {
   const styles: { [key: string]: string | number } = {}
@@ -55,8 +58,9 @@ function buildCSSScopedTokensDeclaration({
   traverse(override, cssVarsMapper, [])
 
   const cssSelector =
-    `.${className}` +
-    objectEntries(dataAttributes ?? {})
+    // https://csswizardry.com/2014/07/hacks-for-dealing-with-specificity/#safely-increasing-specificity
+    `.${componentCxMapper[component]}.${componentCxMapper[component]}` +
+    objectEntries(variants ?? {})
       .map(([key, value]) => {
         return `[data-${key}="${value}"]`
       })
@@ -70,6 +74,7 @@ function buildCSSScopedTokensDeclaration({
 
   return `${cssSelector} {
     ${cssDeclarations}
+    ${apply ? `@apply ${apply}` : ''}
   }`
 }
 
