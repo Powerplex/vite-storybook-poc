@@ -1,4 +1,4 @@
-import { componentCxMapper } from '@theme/constants'
+import { componentCxMapper } from '@theme/constants.mjs'
 import { cx } from 'class-variance-authority'
 import { ComponentPropsWithoutRef, PropsWithChildren } from 'react'
 

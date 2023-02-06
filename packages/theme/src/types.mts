@@ -1,4 +1,4 @@
-import { componentCxMapper } from './constants.js'
+import { componentCxMapper } from './constants.mjs'
 
 export interface Theme {
   screens: {

@@ -110,3 +110,8 @@ export const defaultTheme: Theme = {
     tooltip: 1800,
   },
 }
+
+export const componentCxMapper = {
+  btn: 'spark-btn',
+  tab: 'spark-stack',
+} satisfies Record<string, `spark-${string}`>

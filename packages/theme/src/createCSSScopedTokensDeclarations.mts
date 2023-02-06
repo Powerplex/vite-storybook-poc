@@ -2,35 +2,27 @@ import { existsSync, mkdirSync, writeFileSync } from 'fs'
 import hexRgb from 'hex-rgb'
 import parentModule from 'parent-module'
 import { join } from 'path'
+import { toPairs } from 'remeda'
+import { PartialDeep } from 'type-fest'
 
-import { componentCxMapper } from './constants.js'
+import { componentCxMapper, defaultTheme } from './constants.mjs'
+import { createCSSVarsMapper } from './createCSSVarsMapper.mjs'
 import type { ComponentName, Theme, VariantsConfig } from './types.mjs'
-import { buildFilePath, isHex, objectEntries } from './utils.mjs'
-
-type DeepPartial<T> = T extends object
-  ? {
-      [P in keyof T]?: DeepPartial<T[P]>
-    }
-  : T
+import { buildFilePath, isHex } from './utils.mjs'
 
 interface Props {
   component: ComponentName
-  override: DeepPartial<Theme>
+  override: PartialDeep<Theme>
   variants?: VariantsConfig[Props['component']]
   apply?: string
-  cssVarsMapper: Theme
 }
 
-function buildCSSScopedTokensDeclaration({
-  component,
-  override,
-  variants,
-  apply,
-  cssVarsMapper,
-}: Props): string {
+const cssVarsMapper = createCSSVarsMapper(defaultTheme)
+
+function buildCSSScopedTokensDeclaration({ component, override, variants, apply }: Props): string {
   const styles: { [key: string]: string | number } = {}
 
-  const traverse = (partialValue: DeepPartial<Theme>, originalValue: Theme, path: string[]) => {
+  const traverse = (partialValue: PartialDeep<Theme>, originalValue: Theme, path: string[]) => {
     /* eslint-disable */
     for (const key in partialValue) {
       /* @ts-ignore */
@@ -60,13 +52,13 @@ function buildCSSScopedTokensDeclaration({
   const cssSelector =
     // https://csswizardry.com/2014/07/hacks-for-dealing-with-specificity/#safely-increasing-specificity
     `.${componentCxMapper[component]}.${componentCxMapper[component]}` +
-    objectEntries(variants ?? {})
+    toPairs(variants ?? {})
       .map(([key, value]) => {
         return `[data-${key}="${value}"]`
       })
       .join('')
 
-  const cssDeclarations = objectEntries(styles)
+  const cssDeclarations = toPairs(styles)
     .map(([key, value]) => {
       return `${key}:${value};`
     })
@@ -80,13 +72,11 @@ function buildCSSScopedTokensDeclaration({
 
 interface CreateCSSScopedTokensDeclarations {
   path: string
-  cssVarsMapper: Theme
-  configs: Omit<Props, 'cssVarsMapper'>[]
+  configs: Props[]
 }
 export function createCSSScopedTokensDeclarations({
   path,
   configs,
-  cssVarsMapper,
 }: CreateCSSScopedTokensDeclarations) {
   const { filepath, rootPath } = buildFilePath(join(parentModule() || '', path))
 
@@ -104,9 +94,7 @@ export function createCSSScopedTokensDeclarations({
     return
   }
 
-  const data = configs
-    .map(config => buildCSSScopedTokensDeclaration({ ...config, cssVarsMapper }))
-    .join('')
+  const data = configs.map(buildCSSScopedTokensDeclaration).join('')
 
   writeFileSync(rootPath + filepath, data, {
     flag: 'w',
