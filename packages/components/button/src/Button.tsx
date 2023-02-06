@@ -1,3 +1,5 @@
+import { componentCxMapper } from '@theme/constants.mjs'
+import { cx } from 'class-variance-authority'
 import { ComponentPropsWithoutRef, PropsWithChildren } from 'react'
 
 import { buttonVariants, ButtonVariantsProps } from './Button.variants'
@@ -20,12 +22,18 @@ export function Button({
 
   return (
     <button
-      className={buttonVariants({
-        intent,
-        size,
-        disabled: !!disabled,
-        className,
-      })}
+      data-intent={intent}
+      data-size={size}
+      data-disabled={disabled}
+      className={cx(
+        componentCxMapper.btn,
+        buttonVariants({
+          intent,
+          size,
+          disabled: !!disabled,
+          className,
+        })
+      )}
       {...buttonHtmlProps}
     >
       {children}

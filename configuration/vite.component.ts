@@ -18,7 +18,7 @@ export default {
       fileName: 'index',
     },
     rollupOptions: {
-      external: [...deps, ...devDeps],
+      external: [...deps, ...devDeps, '@theme/constants'],
       plugins: [terser()],
     },
   },

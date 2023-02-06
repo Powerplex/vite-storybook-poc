@@ -1,3 +1,5 @@
+import { componentCxMapper } from './constants.mjs'
+
 export interface Theme {
   screens: {
     sm: string
@@ -106,4 +108,17 @@ export interface Theme {
     toast: number
     tooltip: number
   }
+}
+
+export type ComponentName = keyof typeof componentCxMapper
+
+type ButtonVariantsProps = {
+  disabled?: boolean | null | undefined
+  intent?: 'primary' | 'secondary' | null | undefined
+  size?: 'small' | 'medium' | 'large' | null | undefined
+}
+
+export interface VariantsConfig {
+  btn: ButtonVariantsProps
+  tab: ButtonVariantsProps
 }
